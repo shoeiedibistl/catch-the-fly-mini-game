@@ -5,6 +5,7 @@ const eyeCovers = document.querySelectorAll(".eye-cover");
 const myLowerEyelids = document.querySelectorAll(".eyelid_lower");
 const myUpperEyelids = document.querySelectorAll(".eyelid_upper");
 const myMouth = document.querySelector(".mouth");
+const myBrows = document.querySelectorAll(".brow");
 let isBlowing = false;
 let timerId1;
 let timerId2;
@@ -14,6 +15,10 @@ face.addEventListener("mousemove", function (e) {
   myUpperEyelids.forEach((upperEyelid) => {
     upperEyelid.classList.remove("eyelid_relax");
   });
+
+  myBrows.forEach((brow) => brow.classList.add("up"));
+  myBrows.forEach((brow) => brow.classList.remove("down", "brow-animation"));
+
   myMouth.setAttribute("src", "img/mouth0.png");
 });
 
@@ -27,6 +32,9 @@ face.addEventListener("mouseout", () => {
   myUpperEyelids.forEach((upperEyelid) => {
     upperEyelid.classList.add("eyelid_relax");
   });
+
+  myBrows.forEach((brow) => brow.classList.remove("up"));
+  myBrows.forEach((brow) => brow.classList.add("brow-animation"));
 
   myMouth.setAttribute("src", "img/mouth1.png");
 });
@@ -94,6 +102,9 @@ eyeCovers.forEach((eyeCover) => {
 
     startBlowing(true);
     isBlowing = true;
+
+    myBrows.forEach((brow) => brow.classList.add("down"));
+    myBrows.forEach((brow) => brow.classList.remove("brow-animation"));
   });
 });
 
