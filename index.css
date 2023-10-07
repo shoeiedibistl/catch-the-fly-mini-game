@@ -352,3 +352,75 @@ html * {
   rotate: -15deg;
   background: linear-gradient(90deg, transparent 0%, rgb(247, 198, 129) 100%);
 }
+
+.brow {
+  position: absolute;
+  width: 20%;
+  opacity: 0.7;
+  transition: top 0.2s, rotate 0.2s;
+}
+
+.brow_left {
+  top: 20%;
+  left: 20%;
+  rotate: -10deg;
+}
+
+.brow_left.up {
+  top: 15%;
+  rotate: -15deg;
+}
+
+.brow_left.down {
+  top: 21%;
+  rotate: 10deg;
+}
+
+.brow_right {
+  top: 20%;
+  right: 20%;
+  rotate: 10deg;
+}
+
+.brow_right.up {
+  top: 15%;
+  rotate: 15deg;
+}
+
+.brow_right.down {
+  top: 22%;
+  rotate: -10deg;
+}
+
+.brow-animation {
+  animation: brow-animation 14s ease-in infinite;
+  transition: top 0, rotate 0;
+}
+
+@keyframes brow-animation {
+  0% {
+    top: 20%;
+  }
+
+  80% {
+    top: 20%;
+  }
+
+  81% {
+    top: 16%;
+  }
+  82% {
+    top: 20%;
+  }
+  83% {
+    top: 14%;
+  }
+
+  84% {
+    top: 20%;
+  }
+
+  100% {
+    top: 20%;
+  }
+}
