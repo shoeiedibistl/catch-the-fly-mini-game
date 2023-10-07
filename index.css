@@ -1,0 +1,362 @@
+:root {
+  --left-eye-diameter: 160px;
+  --right-eye-diameter: 140px;
+  --left-eye-iris-diameter: 80px;
+  --right-eye-iris-diameter: 70px;
+}
+
+html {
+  overflow-y: hidden;
+}
+
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url(fly.png), auto;
+}
+
+.body {
+  padding: 40px;
+}
+
+.face {
+  width: 100%;
+  height: calc(100vh - 80px);
+  max-width: 700px;
+  margin: 0 auto;
+  /* background: #faebd7; */
+  background: rgb(250, 235, 215);
+  background: radial-gradient(circle, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 100%);
+  position: relative;
+  /* overflow: hidden; */
+  border-radius: 45%;
+}
+
+.face::before {
+  content: url(img/hair.png);
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: -20%;
+  left: 0;
+}
+
+.eyes {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+}
+
+.eye {
+  width: var(--left-eye-diameter);
+  height: var(--left-eye-diameter);
+  border: 2px solid #777;
+  overflow: hidden;
+  border-radius: 50%;
+  display: grid;
+  background-color: #fff;
+  justify-self: end;
+  align-self: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.eye_right {
+  width: var(--right-eye-diameter);
+  height: var(--right-eye-diameter);
+  justify-self: start;
+}
+
+.eye__apple {
+  width: calc(100% - var(--left-eye-iris-diameter));
+  height: calc(100% - var(--left-eye-iris-diameter));
+  border-radius: 50%;
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  top: 0;
+  left: 0;
+}
+
+.eye__apple_right {
+  width: calc(100% - var(--right-eye-iris-diameter));
+  height: calc(100% - var(--right-eye-iris-diameter));
+}
+
+.eyelid {
+  position: absolute;
+  /* top: 0; */
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: antiquewhite;
+  z-index: 3;
+}
+
+.eyelid_upper {
+  top: -50%;
+  border-bottom: 2px solid #777;
+}
+
+.eyelid_upper_anim {
+  /* top: -50%; */
+  animation: ease-in eyelid-upper-blinking 10s infinite;
+}
+
+.eyelid_relax {
+  top: 0px !important;
+}
+
+@keyframes eyelid-upper-blinking {
+  0% {
+    top: -50%;
+  }
+  4% {
+    top: -50%;
+  }
+  5% {
+    top: 0;
+  }
+  6% {
+    top: -50%;
+  }
+
+  39% {
+    top: -50%;
+  }
+  40% {
+    top: 0;
+  }
+  41% {
+    top: -50%;
+  }
+  42% {
+    top: -50%;
+  }
+
+  43% {
+    top: 0;
+  }
+
+  44% {
+    top: -50%;
+  }
+  100% {
+    top: -50%;
+  }
+}
+
+.eyelid_lower {
+  bottom: -50%;
+  border-top: 2px solid #777;
+}
+
+.eyelid_lower_anim {
+  animation: ease-in eyelid-lower-blinking 10s infinite;
+}
+
+@keyframes eyelid-lower-blinking {
+  0% {
+    bottom: -50%;
+  }
+  4% {
+    bottom: -50%;
+  }
+  5% {
+    bottom: 0;
+  }
+  6% {
+    bottom: -50%;
+  }
+
+  39% {
+    bottom: -50%;
+  }
+  40% {
+    bottom: 0;
+  }
+  41% {
+    bottom: -50%;
+  }
+  42% {
+    bottom: -50%;
+  }
+
+  43% {
+    bottom: 0;
+  }
+
+  44% {
+    bottom: -50%;
+  }
+  100% {
+    bottom: -50%;
+  }
+}
+
+.eye__center {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.eye__center_relative {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.eye__iris {
+  width: var(--left-eye-iris-diameter);
+  height: var(--left-eye-iris-diameter);
+  border-radius: 50%;
+  background-color: rgb(112, 146, 190);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.eye__iris_right {
+  width: var(--right-eye-iris-diameter);
+  height: var(--right-eye-iris-diameter);
+}
+
+.eye__pupil {
+  position: absolute;
+  width: calc(var(--left-eye-iris-diameter) / 1.75);
+  height: calc(var(--left-eye-iris-diameter) / 1.75);
+  background-color: black;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.eye__pupil_right {
+  width: calc(var(--right-eye-iris-diameter) / 1.75);
+  height: calc(var(--right-eye-iris-diameter) / 1.75);
+}
+
+.eye__glare {
+  width: calc(var(--left-eye-iris-diameter) / 2);
+  height: calc(var(--left-eye-iris-diameter) / 2);
+  background-color: #fff;
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  transform: translate(-50%, -50%) skew(30deg, 30deg);
+}
+
+.eye__glare_right {
+  width: calc(var(--right-eye-iris-diameter) / 2);
+  height: calc(var(--right-eye-iris-diameter) / 2);
+}
+
+.eye-cover {
+  width: 700%;
+  height: 700%;
+  /* background-color: rgba(0, 0, 255, 0.364); */
+  z-index: 4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mouth {
+  width: 120px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: 10%;
+  left: 45%;
+}
+
+.ear {
+  position: absolute;
+  background: rgb(250, 235, 215);
+  background: radial-gradient(circle, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 100%);
+  width: 100px;
+  height: 120px;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.ear_left {
+  top: 50%;
+  left: -70px;
+}
+
+.ear_right {
+  top: 45%;
+  right: -70px;
+}
+
+.cheek {
+  position: absolute;
+  background: rgb(250, 235, 215);
+  /* background: radial-gradient(circle, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 100%); */
+  /* background: linear-gradient(130deg, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 90%); */
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.cheek_left {
+  top: 60%;
+  left: 6%;
+  width: 220px;
+  height: 220px;
+  /* background: linear-gradient(-130deg, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 90%); */
+  background: linear-gradient(-130deg, transparent 50%, rgba(247, 197, 129, 1) 90%);
+}
+
+.cheek_right {
+  top: 56%;
+  right: 3%;
+  width: 200px;
+  height: 200px;
+  /* background: linear-gradient(130deg, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 90%); */
+  background: linear-gradient(130deg, transparent 50%, rgba(247, 197, 129, 1) 90%);
+}
+
+.cheek_show {
+  visibility: visible;
+}
+
+.neck {
+  position: absolute;
+  background: rgb(250, 235, 215);
+  background: radial-gradient(circle, rgba(250, 235, 215, 1) 0%, rgba(247, 197, 129, 1) 90%);
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 400px;
+  z-index: -1;
+}
+
+.nose {
+  background-color: aquamarine;
+  position: absolute;
+  top: 52%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 60px;
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+  rotate: -15deg;
+  background: linear-gradient(90deg, transparent 0%, rgb(247, 198, 129) 100%);
+}
