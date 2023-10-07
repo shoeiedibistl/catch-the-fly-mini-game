@@ -25,11 +25,9 @@ html * {
   height: calc(100vh - 80px);
   max-width: 700px;
   margin: 0 auto;
-  /* background: #faebd7; */
   background: rgb(250, 235, 215);
   background: radial-gradient(circle, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 100%);
   position: relative;
-  /* overflow: hidden; */
   border-radius: 45%;
 }
 
@@ -55,7 +53,7 @@ html * {
 .eye {
   width: var(--left-eye-diameter);
   height: var(--left-eye-diameter);
-  border: 2px solid #777;
+  box-shadow: 0 0 16px #f7c581;
   overflow: hidden;
   border-radius: 50%;
   display: grid;
@@ -90,7 +88,6 @@ html * {
 
 .eyelid {
   position: absolute;
-  /* top: 0; */
   left: 0;
   width: 100%;
   height: 50%;
@@ -100,11 +97,10 @@ html * {
 
 .eyelid_upper {
   top: -50%;
-  border-bottom: 2px solid #777;
+  background: linear-gradient(antiquewhite 50%, #f7c581 100%);
 }
 
 .eyelid_upper_anim {
-  /* top: -50%; */
   animation: ease-in eyelid-upper-blinking 10s infinite;
 }
 
@@ -153,7 +149,7 @@ html * {
 
 .eyelid_lower {
   bottom: -50%;
-  border-top: 2px solid #777;
+  background: linear-gradient(#f7c581 0%, antiquewhite 50%);
 }
 
 .eyelid_lower_anim {
@@ -251,24 +247,24 @@ html * {
 }
 
 .eye__glare {
-  width: calc(var(--left-eye-iris-diameter) / 2);
-  height: calc(var(--left-eye-iris-diameter) / 2);
+  width: calc(var(--left-eye-iris-diameter) / 4);
+  height: calc(var(--left-eye-iris-diameter) / 4);
   background-color: #fff;
   position: absolute;
-  top: -20%;
-  left: -20%;
-  transform: translate(-50%, -50%) skew(30deg, 30deg);
+  top: 20%;
+  left: 20%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .eye__glare_right {
-  width: calc(var(--right-eye-iris-diameter) / 2);
-  height: calc(var(--right-eye-iris-diameter) / 2);
+  width: calc(var(--right-eye-iris-diameter) / 4);
+  height: calc(var(--right-eye-iris-diameter) / 4);
 }
 
 .eye-cover {
   width: 700%;
   height: 700%;
-  /* background-color: rgba(0, 0, 255, 0.364); */
   z-index: 4;
   position: absolute;
   top: 50%;
@@ -287,7 +283,7 @@ html * {
 .ear {
   position: absolute;
   background: rgb(250, 235, 215);
-  background: radial-gradient(circle, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 100%);
+  background: radial-gradient(circle, rgba(250, 235, 215, 1) 50%, rgb(247, 197, 129) 100%);
   width: 100px;
   height: 120px;
   border-radius: 50%;
@@ -307,8 +303,6 @@ html * {
 .cheek {
   position: absolute;
   background: rgb(250, 235, 215);
-  /* background: radial-gradient(circle, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 100%); */
-  /* background: linear-gradient(130deg, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 90%); */
   border-radius: 50%;
   visibility: hidden;
 }
@@ -318,7 +312,6 @@ html * {
   left: 6%;
   width: 220px;
   height: 220px;
-  /* background: linear-gradient(-130deg, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 90%); */
   background: linear-gradient(-130deg, transparent 50%, rgba(247, 197, 129, 1) 90%);
 }
 
@@ -327,7 +320,6 @@ html * {
   right: 3%;
   width: 200px;
   height: 200px;
-  /* background: linear-gradient(130deg, rgba(250, 235, 215, 1) 50%, rgba(247, 197, 129, 1) 90%); */
   background: linear-gradient(130deg, transparent 50%, rgba(247, 197, 129, 1) 90%);
 }
 
