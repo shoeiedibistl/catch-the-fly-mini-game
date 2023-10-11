@@ -7,8 +7,8 @@ const myUpperEyelids = document.querySelectorAll(".eyelid_upper");
 const myMouth = document.querySelector(".mouth");
 const myBrows = document.querySelectorAll(".brow");
 let isBlowing = false;
-let timerId1;
-let timerId2;
+let timerBlowIn;
+let timerBlowOut;
 
 face.addEventListener("mousemove", function (e) {
   moveEyes(e);
